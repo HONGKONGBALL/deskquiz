@@ -1,0 +1,214 @@
+:root {
+  --paper: #f3ecdf;
+  --card: #fffaf2;
+  --ink: #1c1612;
+  --muted: #6d6256;
+  --line: #1c1612;
+  --red: #9e2a2b;
+  --gold: #e7c56a;
+  --ok: #1f6b45;
+  --bad: #9e2a2b;
+  --shadow: 6px 6px 0 #1c1612;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(28, 22, 18, 0.04), transparent 180px),
+    var(--paper);
+  font-family: "Noto Sans CJK TC", "Noto Sans CJK HK", "Alegreya Sans", sans-serif;
+  line-height: 1.45;
+}
+
+.top, main {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: end;
+  padding: 36px 0 18px;
+}
+
+.brand { display: flex; gap: 14px; align-items: center; }
+
+.chop {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-family: "Noto Serif CJK TC", serif;
+  font-size: 36px;
+  transform: rotate(-8deg);
+  background: #fff6f4;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-family: "Noto Serif CJK TC", "Alegreya", serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+}
+
+h1 span {
+  font-family: "Alegreya", "Noto Serif CJK TC", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+h2 {
+  margin: 0;
+  font-family: "Noto Serif CJK TC", serif;
+  font-size: 22px;
+}
+
+.lede { margin: 0 0 8px; max-width: 46ch; }
+
+main {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 18px;
+  padding-bottom: 48px;
+}
+
+.panel {
+  background: var(--card);
+  border: 2px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.saved { grid-row: span 2; }
+
+.quiz, #result { grid-column: 1 / 2; }
+
+.panel-head, .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+label { display: grid; gap: 6px; margin-top: 12px; font-size: 14px; }
+
+input, textarea, button {
+  font: inherit;
+  color: inherit;
+}
+
+input[type="text"], input[type="number"], textarea {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  padding: 10px 12px;
+}
+
+textarea { resize: vertical; min-height: 220px; line-height: 1.55; }
+
+button {
+  border: 1.5px solid var(--line);
+  background: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button.primary { background: var(--ink); color: var(--paper); }
+
+button:hover { background: var(--gold); color: var(--ink); }
+
+.row { margin-top: 14px; }
+
+.inline { display: flex; align-items: center; gap: 8px; margin: 0; }
+
+.inline input { width: 72px; }
+
+.hint, .error { font-size: 14px; }
+
+.hint { color: var(--muted); }
+
+.error { color: var(--bad); }
+
+#saved-list { list-style: none; padding: 0; margin: 12px 0 0; }
+
+#saved-list li { border-top: 1px solid #d9d0c3; }
+
+#saved-list button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 10px 0;
+}
+
+#saved-list small { display: block; color: var(--muted); }
+
+.empty { color: var(--muted); }
+
+.prompt { color: var(--muted); margin-bottom: 6px; }
+
+.stem {
+  font-family: "Noto Serif CJK TC", "Alegreya", serif;
+  font-size: 28px;
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+
+.options { display: grid; gap: 8px; }
+
+.options button {
+  text-align: left;
+  padding: 12px;
+  background: #fff;
+}
+
+.options button.selected {
+  background: var(--gold);
+  box-shadow: inset 4px 0 0 var(--ink);
+}
+
+.score {
+  font-family: "Alegreya", serif;
+  font-size: 64px;
+  margin: 0;
+  line-height: 1;
+}
+
+#review { list-style: none; padding: 0; }
+
+#review li {
+  border-top: 1px solid #d9d0c3;
+  padding: 12px 0;
+}
+
+#review .ok { color: var(--ok); }
+#review .bad { color: var(--bad); }
+
+.source {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .top, main { display: block; }
+  .saved { margin-top: 18px; }
+  h1 { font-size: 36px; }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>堂測 DeskQuiz</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="chop">測</span>
+      <div>
+        <p class="eyebrow">Hong Kong class notes → quiz</p>
+        <h1>堂測 <span>DeskQuiz</span></h1>
+      </div>
+    </div>
+    <p class="lede">把堂上筆記貼進來。程式只讀你自己寫的「詞：解釋」句子，立刻出一張可以做的小測，每題都標明出自第幾行。</p>
+  </header>
+
+  <main>
+    <section id="desk" class="panel">
+      <div class="panel-head">
+        <h2>筆記桌</h2>
+        <button id="sample-btn" type="button">放入示範筆記</button>
+      </div>
+      <label>
+        標題 Title
+        <input id="title" type="text" maxlength="80" placeholder="例如 S4 Biology — Enzymes" />
+      </label>
+      <label>
+        課堂筆記 Class notes
+        <textarea id="notes" rows="14" placeholder="酵素: 一種蛋白質，可以加快化學反應，本身不會被用掉。&#10;Enzyme: a protein that speeds up a reaction and is not used up."></textarea>
+      </label>
+      <div class="row">
+        <label class="inline">
+          題數
+          <input id="count" type="number" min="3" max="12" value="8" />
+        </label>
+        <button id="make-btn" type="button" class="primary">生成小測 Make quiz</button>
+      </div>
+      <p id="form-error" class="error" hidden></p>
+      <p class="hint">至少三行「詞: 解釋」或「Term - meaning」。中英可以混在同一份筆記裡。資料只存在這台電腦。</p>
+    </section>
+
+    <aside class="panel saved">
+      <h2>做過的小測</h2>
+      <ul id="saved-list"></ul>
+    </aside>
+
+    <section id="quiz" class="panel quiz" hidden>
+      <div class="panel-head">
+        <h2 id="quiz-title"></h2>
+        <p id="progress"></p>
+      </div>
+      <p id="prompt" class="prompt"></p>
+      <p id="stem" class="stem"></p>
+      <div id="options" class="options"></div>
+      <div class="row">
+        <button id="prev-btn" type="button">上一題</button>
+        <button id="next-btn" type="button" class="primary">下一題</button>
+      </div>
+    </section>
+
+    <section id="result" class="panel" hidden>
+      <div class="score-block">
+        <p class="eyebrow">這次成績</p>
+        <p id="score" class="score"></p>
+      </div>
+      <ul id="review"></ul>
+      <div class="row">
+        <button id="retry-btn" type="button">再做一次</button>
+        <button id="back-btn" type="button" class="primary">回筆記桌</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

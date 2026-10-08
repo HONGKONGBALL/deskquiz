@@ -1,0 +1,10 @@
+{
+  "name": "deskquiz",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local web app that turns Hong Kong class notes into a study quiz.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/quiz.test.js"
+  }
+}

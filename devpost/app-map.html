@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <title>堂測 app map</title>
+  <style>
+    body { font-family: "Noto Sans CJK TC", sans-serif; background: #f3ecdf; color: #1c1612; margin: 32px; max-width: 720px; }
+    h1 { font-family: "Noto Serif CJK TC", serif; }
+    code { background: #fff; padding: 0 4px; }
+  </style>
+</head>
+<body>
+  <h1>堂測 DeskQuiz — where the loop lives</h1>
+  <p>Practice to reuse: when a feature has to be checkable, trace one user action through the request, the function that decides, and the file that remembers it.</p>
+  <ol>
+    <li><code>public/app.js</code> — <code>make-btn</code> sends <code>POST /api/quizzes</code>.</li>
+    <li><code>server.js</code> — <code>createQuiz</code> calls <code>parseFacts</code> and <code>buildQuestions</code>, then stores the quiz.</li>
+    <li><code>lib/quiz.js</code> — <code>scoreAttempt</code> runs only on <code>POST /api/quizzes/:id/attempts</code>, so the page does not get the answer key early.</li>
+    <li><code>data/store.json</code> — created at runtime and gitignored. That is the memory between restarts.</li>
+  </ol>
+  <p>This map was written by the agent. The learning wrap-up was not done with the learner.</p>
+</body>
+</html>
